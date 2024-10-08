@@ -153,4 +153,4 @@ dmypy.json
 cython_debug/
 
 # Dataset
-MovieLens_data/
+data/
