@@ -3,9 +3,12 @@ import requests
 import pandas as pd
 import re
 
-url = 'http://localhost:8080/'
+# read the URL from the urls.txt file
+with open('urls.txt', 'r') as file:
+    line = file.readline().strip()
+    url = line.split('send_url:')[1].strip()
 
-movies = pd.read_csv('data/final_data/movies_final_v3.csv')
+movies = pd.read_csv('data/final_data/movies_full.csv')
 
 # remove the unused columns
 if 'endYear' in movies.columns:
@@ -14,8 +17,6 @@ if 'imdb_id' in movies.columns:
     movies = movies.drop(columns=['imdb_id'])
 if 'tmdb_id' in movies.columns:
     movies = movies.drop(columns=['tmdb_id'])
-if 'video_key' in movies.columns:
-    movies = movies.drop(columns=['video_key'])
 
 # dictionary to map old column names to new ones
 column_rename_map = {

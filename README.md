@@ -18,32 +18,40 @@ git clone https://github.com/PepeuFBV/Movie-Recommendation.git
 
 ## Project Structure and Files
 
-The project contains 4 main files:
+The project contains 5 main files:
 
 - `models.ipynb` - Jupyter Notebook containing the implementation of the recommendation algorithms.
 - `fetch_data.py` - Python script to fetch data from TMDb API.
+- `analysis.ipynb` - Jupyter Notebook containing the analysis of the ratings' data.
+- `dataset_treatment.ipynb` - Jupyter Notebook containing the treatment of the dataset.
+- `send_data.py` - Python script to send the data to the Kotflix application (uses the `urls.txt` file).
 
 ## Data files
 
-final_data folder
-- ratings.csv - Final ratings file, contains the userId, movieId and rating for each rating done by the users.
-- movies_ids.csv - Contains information pertaining to the possible ids for the movies, has the movieId (MovieLens id), imdbId (IMDb id) and tmdbId (TMDb id).
-- movies.csv - Contains information about the movies, such as the title, genres, release date, etc. But the only association with id is through the imdbId.
+Create a data directory and download the MovieLens dataset and IMDb dataset. The MovieLens dataset can be downloaded from the [MovieLens](https://grouplens.org/datasets/movielens/20m/) website. The IMDb dataset can be downloaded from the [IMDb](https://www.imdb.com/interfaces/) website.
 
+Then create a data directory and move the downloaded files to it, as well as make a subdirectory called final_data. The final data directory will contain the final dataset used in the project and ratings.csv, which is the dataset used in the analysis.
 
+## Usage
 
+Firstly run the `fetch_data.py` script to fetch the remaining data from TMDb API:
 
+```bash
+python fetch_data.py
+```
 
+Then run the `dataset_treatment.ipynb` notebook to preprocess the data and save it in a CSV file.
 
+After that, run the `models.ipynb` notebook to train the recommendation models and evaluate their performance.
 
+Furthermore, run the `analysis.ipynb` notebook to analyze the ratings' data.
 
+Finally, run the `send_data.py` script to send the data to the Kotflix application:
 
+```bash
+python send_data.py
+```
 
+## License
 
-
-
-
-
-
-
-
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
