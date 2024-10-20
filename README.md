@@ -22,3 +22,28 @@ The project contains 4 main files:
 
 - `models.ipynb` - Jupyter Notebook containing the implementation of the recommendation algorithms.
 - `fetch_data.py` - Python script to fetch data from TMDb API.
+
+## Data files
+
+final_data folder
+- ratings.csv - Final ratings file, contains the userId, movieId and rating for each rating done by the users.
+- movies_ids.csv - Contains information pertaining to the possible ids for the movies, has the movieId (MovieLens id), imdbId (IMDb id) and tmdbId (TMDb id).
+- movies.csv - Contains information about the movies, such as the title, genres, release date, etc. But the only association with id is through the imdbId.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
