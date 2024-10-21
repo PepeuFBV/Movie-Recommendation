@@ -18,6 +18,9 @@ if 'imdb_id' in movies.columns:
 if 'tmdb_id' in movies.columns:
     movies = movies.drop(columns=['tmdb_id'])
 
+for column in movies.columns:
+    print(column)
+
 # dictionary to map old column names to new ones
 column_rename_map = {
     'movie_id': 'modelId',
@@ -28,10 +31,10 @@ column_rename_map = {
     'genres': 'genre',
     'startYear': 'releaseDate',
     'runtimeMinutes': 'duration',
-    'rating': 'score',
     'isAdult': 'rating',
+    'rating': 'score',
     'backdrop_path': 'posterUrl',
-    'video': 'videoUrl',
+    'video_key': 'videoUrl',
     'poster_path': 'imageUrl'
 }
 
@@ -102,7 +105,7 @@ def login() -> str:
     return response.json()['token']
 
 
-def send_data(r_token: str, payload: str):
+def send_data(r_token: str, payload: str, print_response: bool = True):
     route = 'movies/save_all'
 
     headers = {
@@ -111,7 +114,8 @@ def send_data(r_token: str, payload: str):
     }
 
     response = requests.post(url + route, headers=headers, data=payload)
-    print(response)
+    if print_response:
+        print(response)
 
 
 def send_movies_in_chunks(movies_df, chunk_size=1000):
@@ -129,7 +133,8 @@ def send_movies_in_chunks(movies_df, chunk_size=1000):
             print(f"JSON encoding error: {e}")
             continue
 
-        send_data(token, data)
+        send_data(token, data, print_response=False)
+        print(f"Sent movie {i + 1}/{num_chunks}")
 
 
 def send_first_movie():
