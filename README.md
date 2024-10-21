@@ -8,6 +8,8 @@ Models such as Matrix Factorization algorithms (SVD, SVDpp, NMF), the Slope One 
 
 The repository also contains a script to fetch the remaining necessary data from The Movie Database (TMDb) API, such as movie genres, release dates, trailer links and other relevant information. The data is then preprocessed and saved in a CSV file to be used in the main application developed for using this project [Kotflix](https://github.com/PepeuFBV/KotFlix).
 
+A paper was also written to explain the objectives and results of this project, which can be found [here](Leveraging_Machine_Learning_Algorithms_for_User_Centric_Movie_Recommendations.pdf).
+
 ## Installation
 
 Get the project from GitHub:
